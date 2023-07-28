@@ -26,3 +26,35 @@ time, mark, audio, video {
 }
 
 /* ----------- Custom CSS ----------- */
+body {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#container-main {
+	background-color: antiquewhite;
+	width: 400px;
+	height: 600px;;
+}
+
+#container-display {
+	height: 100px;
+	font-size: 2rem;
+}
+
+#container-buttons {
+	height: 500px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+button {
+	font-size: 2rem;
+	width: 25%;
+}
+
+#zero {
+	flex: 2;
+}
