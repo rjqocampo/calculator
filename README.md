@@ -1,0 +1,1 @@
+Calculator project to practice Javascript fundamentals
