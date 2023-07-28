@@ -96,6 +96,13 @@ const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
 showDisplay();
-/**
 
+/**
+    +/- if > 0, turn negative. Vice versa
+    % is n / 100
+    use slice(str.length - 1) for delete function
+    minor bug when doing + then equals. number operates on itself
+    minor bug, auto rounds to floor if there's decimals
+    add decimals. should only use once on a string
+    add keyboard support
  */
