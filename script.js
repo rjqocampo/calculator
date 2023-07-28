@@ -7,21 +7,23 @@ const displayOperator = document.querySelector('#display-operator');
 let a = null;
 let b = null;
 let operator = '';
-let displayValue = '';
+let displayValue = '0';
 
 // listen for number buttons. append numbers to string of displayValue then show
 buttonsNumber.forEach(button => {
     button.addEventListener('click', (event) => {
+        if (displayNumber.textContent === '0') {
+            displayValue = '';
+        }
         displayValue = displayValue + event.target.textContent;
         showDisplay()
     });
 })
 
-// listen for operator buttons. 
 buttonsOperator.forEach(button => {
     button.addEventListener('click', (event) => {
         getDisplayValue(); 
-        clearDisplay(); 
+        // clearDisplay(); 
         assignAB();
         operate();
         assignOperator(event);
@@ -29,26 +31,30 @@ buttonsOperator.forEach(button => {
     });
 })
 
+buttonClear.addEventListener('click', clear)
+
 function operate () {
     displayValue = '';
     if (a !== null & b !== null) {
         if (operator === '+') {
-            console.log('+');
             let value = add(a, b);
-            b = value;
+            b = value; 
             displayNumber.textContent = value;
-            console.log(value);
         } else if (operator === '-') {
-            console.log('-');
             let value = subtract(a, b);
             b = value;
             displayNumber.textContent = value;
-            console.log(value);
-        }
-        // else if (operator === '*') {displayNumber.textContent = multiply(a, b)}
-        // else if (operator === '/') {displayNumber.textContent = divide(a, b)};
-    }
-}
+        } else if (operator === '*') {
+            let value = multiply(a, b);
+            b = value;
+            displayNumber.textContent = value;
+        } else if (operator === '/') {
+            let value = divide(a, b);
+            b = value;
+            displayNumber.textContent = value;
+        };
+    };
+};
 
 function assignOperator(event) {
     operator = event.target.textContent;
@@ -75,23 +81,21 @@ function showDisplay() {
     displayNumber.textContent = displayValue;
 }
 
-// clear all variables
-buttonClear.addEventListener('click', () => {
+function clear() {
     a = null;
     b = null;
     operator = '';
-    displayValue = '';
+    displayValue = '0';
     showDisplay();
     showOperator();
-})
-
+}
 
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
-
+showDisplay();
 /**
 
  */
