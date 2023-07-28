@@ -1,12 +1,15 @@
 const buttonsNumber = document.querySelectorAll('.button-number');
 const buttonsOperator = document.querySelectorAll('.button-operator');
-const display = document.querySelector('#display');
+const buttonClear = document.querySelector('#clear');
+const displayNumber = document.querySelector('#display-number');
+const displayOperator = document.querySelector('#display-operator');
 
 let a = null;
 let b = null;
 let operator = '';
 let displayValue = '';
 
+// listen for number buttons. append numbers to string of displayValue then show
 buttonsNumber.forEach(button => {
     button.addEventListener('click', (event) => {
         displayValue = displayValue + event.target.textContent;
@@ -14,13 +17,15 @@ buttonsNumber.forEach(button => {
     });
 })
 
+// listen for operator buttons. 
 buttonsOperator.forEach(button => {
     button.addEventListener('click', (event) => {
-        getDisplayValue();
-        clearDisplay();
+        getDisplayValue(); 
+        clearDisplay(); 
         assignAB();
         operate();
         assignOperator(event);
+        showOperator();
     });
 })
 
@@ -31,17 +36,17 @@ function operate () {
             console.log('+');
             let value = add(a, b);
             b = value;
-            display.textContent = value;
+            displayNumber.textContent = value;
             console.log(value);
         } else if (operator === '-') {
             console.log('-');
             let value = subtract(a, b);
             b = value;
-            display.textContent = value;
+            displayNumber.textContent = value;
             console.log(value);
         }
-        // else if (operator === '*') {display.textContent = multiply(a, b)}
-        // else if (operator === '/') {display.textContent = divide(a, b)};
+        // else if (operator === '*') {displayNumber.textContent = multiply(a, b)}
+        // else if (operator === '/') {displayNumber.textContent = divide(a, b)};
     }
 }
 
@@ -50,7 +55,7 @@ function assignOperator(event) {
 }
 
 function getDisplayValue() {
-    displayValue = parseInt(display.textContent);
+    displayValue = parseInt(displayNumber.textContent);
 }
 
 function assignAB() {
@@ -59,27 +64,34 @@ function assignAB() {
 }
 
 function clearDisplay() {
-    display.textContent = '';
+    displayNumber.textContent = '';
 }
 
-function displayNumber(event) {
-    if (display.textContent === '0') {
-        display.textContent = '';
-    }
-    display.textContent += event.target.textContent;
+function showOperator() {
+    displayOperator.textContent = `${operator}`;
 }
 
 function showDisplay() {
-    display.textContent = displayValue;
+    displayNumber.textContent = displayValue;
 }
+
+// clear all variables
+buttonClear.addEventListener('click', () => {
+    a = null;
+    b = null;
+    operator = '';
+    displayValue = '';
+    showDisplay();
+    showOperator();
+})
 
 
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
-/**
-after operator, display should clear because getting wrong value for b
 
+
+/**
 
  */
