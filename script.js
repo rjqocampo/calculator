@@ -1,6 +1,7 @@
 const buttonsNumber = document.querySelectorAll('.button-number');
 const buttonsOperator = document.querySelectorAll('.button-operator');
 const buttonClear = document.querySelector('#clear');
+const buttonPercentage = document.querySelector('#percentage');
 const buttonNegative = document.querySelector('#negative')
 const displayNumber = document.querySelector('#display-number');
 const displayOperator = document.querySelector('#display-operator');
@@ -36,13 +37,14 @@ buttonsOperator.forEach(button => {
 
 buttonClear.addEventListener('click', clear);
 buttonNegative.addEventListener('click', toggleNegative);
+buttonPercentage.addEventListener('click', percentage);
 
 function operate () {
     displayValue = '';
-    if (a !== null & b !== null) {
+    if (a !== null && b !== null) {
         if (operator === '+') {
             let value = add(a, b);
-            // a = b; ----------- correct logic, but necessary?
+            // a = b;
             b = value; 
             displayNumber.textContent = b;
         } else if (operator === '-') {
@@ -66,7 +68,7 @@ function assignOperator(event) {
 }
 
 function getDisplayValue() {
-    displayValue = parseInt(displayNumber.textContent);
+    displayValue = parseFloat(displayNumber.textContent);
 }
 
 function assignAB() {
@@ -87,34 +89,20 @@ function showDisplay() {
 }
 
 function toggleNegative() { 
-    if (displayNumber.textContent === '0') { return };
-        if (displayNumber.textContent.includes('-')) {
-            console.log('null slice')
-            displayNumber.textContent = displayNumber.textContent.slice(1);
-        } else {
-            console.log('null negative')
-            displayNumber.textContent = '-' + displayNumber.textContent;
-
-    // } else if (a !== null && b !== null) {
-    //     if (displayNumber.textContent.includes('-')) {
-    //         console.log('b slice');
-
-    //         displayNumber.textContent = displayNumber.textContent.slice(1);
-
-    //         // b = Math.abs(b);
-    //         // displayNumber.textContent = b;
-    //         // displayValue = b;
-    //     } else {
-    //         console.log('b negative')
-
-    //         displayNumber.textContent = '-' + displayNumber.textContent;
-
-    //         // b = -b;
-    //         // displayNumber.textContent = b;
-    //         // displayValue = b;
-    //     }
-    
+    if (displayNumber.textContent === '0') {
+        return;
+    } else if (displayNumber.textContent.includes('-')) {
+        displayNumber.textContent = displayNumber.textContent.slice(1);
+    } else {
+        displayNumber.textContent = '-' + displayNumber.textContent;
     }
+}
+
+function percentage() {
+    console.log(displayNumber.textContent);
+    let value = parseFloat(displayNumber.textContent) / 100;
+    displayValue = value;
+    displayNumber.textContent = value;
 }
 
 function clear() {
