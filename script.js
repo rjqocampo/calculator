@@ -1,6 +1,7 @@
 const buttonsNumber = document.querySelectorAll('.button-number');
 const buttonsOperator = document.querySelectorAll('.button-operator');
-const buttonClear = document.querySelector('#clear');
+const buttonClearAll = document.querySelector('#clear-all');
+const buttonClearEntry = document.querySelector('#clear-entry');
 const buttonPercentage = document.querySelector('#percentage');
 const buttonNegative = document.querySelector('#negative')
 const buttonDecimal = document.querySelector ('#decimal');
@@ -11,6 +12,12 @@ let a = null;
 let b = null;
 let operator = '';
 let displayValue = '0';
+
+buttonClearAll.addEventListener('click', clearAll);
+buttonClearEntry.addEventListener('click', clearEntry);
+buttonNegative.addEventListener('click', toggleNegative);
+buttonPercentage.addEventListener('click', percentage);
+buttonDecimal.addEventListener('click', decimal);
 
 // listen for number buttons. append numbers to string of displayValue then show
 buttonsNumber.forEach(button => {
@@ -36,29 +43,27 @@ buttonsOperator.forEach(button => {
     });
 })
 
-buttonClear.addEventListener('click', clear);
-buttonNegative.addEventListener('click', toggleNegative);
-buttonPercentage.addEventListener('click', percentage);
-buttonDecimal.addEventListener('click', decimal);
-
 function operate () {
     displayValue = '';
     if (a !== null && b !== null) {
         if (operator === '+') {
             let value = add(a, b);
-            // a = b;
+            a = b;
             b = value; 
             displayNumber.textContent = b;
         } else if (operator === '-') {
             let value = subtract(a, b);
+            a = b;
             b = value;
             displayNumber.textContent = b;
         } else if (operator === '*') {
             let value = multiply(a, b);
+            a = b;
             b = value;
             displayNumber.textContent = b;
         } else if (operator === '/') {
             let value = divide(a, b);
+            a = b;
             b = value;
             displayNumber.textContent = b;
         }  
@@ -103,12 +108,13 @@ function toggleNegative() {
 function percentage() {
     console.log(displayNumber.textContent);
     let value = parseFloat(displayNumber.textContent) / 100;
-    displayValue = value;
+    displayValue = value.toString();
     displayNumber.textContent = value;
 }
 
 function decimal() {
-    if (displayNumber.textContent.includes('.')) {
+    if (displayValue.includes('.')) { // ------------------- bug
+        console.log('bug')
         return;
     } else if (displayValue === '' || displayValue === '0') {
         displayValue = '0.'
@@ -119,13 +125,17 @@ function decimal() {
     }
 }
 
-function clear() {
+function clearAll() {
     a = null;
     b = null;
     operator = '';
     displayValue = '0';
     showDisplay();
     showOperator();
+}
+
+function clearEntry() {
+    console.log('test');
 }
 
 const add = (a, b) => a + b;
@@ -136,24 +146,7 @@ const divide = (a, b) => a / b;
 showDisplay();
 
 /**
-    % is n / 100
-    use slice(str.length - 1) for delete function
-    minor bug when doing + then equals. number operates on itself
-    minor bug, auto rounds to floor if there's decimals
-    add decimals. should only use once on a string
+    bug '[Violation] 'click' handler took 3824ms'
+    bug with decimal, displayValue.includes is not a function after using percentage. checking on a string
     add keyboard support
- */
-
-/**
-    after an operation, when a and b are not null. toggle nega still refers to b instead of display
-
-    if display.textContent is '0', don't do anything
-    if a is null or b is null,
-        if includes '-', slice(1)
-        else if '-' + displayNumber.textContent
-    if a not null and b not null,
-        if includes '-', slice(1)
-        else if '-' + b, might need to parse? 
-
-    showDisplay();
  */
