@@ -3,6 +3,7 @@ const buttonsOperator = document.querySelectorAll('.button-operator');
 const buttonClear = document.querySelector('#clear');
 const buttonPercentage = document.querySelector('#percentage');
 const buttonNegative = document.querySelector('#negative')
+const buttonDecimal = document.querySelector ('#decimal');
 const displayNumber = document.querySelector('#display-number');
 const displayOperator = document.querySelector('#display-operator');
 
@@ -38,6 +39,7 @@ buttonsOperator.forEach(button => {
 buttonClear.addEventListener('click', clear);
 buttonNegative.addEventListener('click', toggleNegative);
 buttonPercentage.addEventListener('click', percentage);
+buttonDecimal.addEventListener('click', decimal);
 
 function operate () {
     displayValue = '';
@@ -103,6 +105,18 @@ function percentage() {
     let value = parseFloat(displayNumber.textContent) / 100;
     displayValue = value;
     displayNumber.textContent = value;
+}
+
+function decimal() {
+    if (displayNumber.textContent.includes('.')) {
+        return;
+    } else if (displayValue === '' || displayValue === '0') {
+        displayValue = '0.'
+        showDisplay()
+    } else {
+        displayValue = displayValue + '.';
+        showDisplay();
+    }
 }
 
 function clear() {
