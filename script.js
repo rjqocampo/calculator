@@ -1,6 +1,7 @@
 const buttonsNumber = document.querySelectorAll('.button-number');
 const buttonsOperator = document.querySelectorAll('.button-operator');
 const buttonClear = document.querySelector('#clear');
+const buttonNegative = document.querySelector('#button-negative');
 const displayNumber = document.querySelector('#display-number');
 const displayOperator = document.querySelector('#display-operator');
 
@@ -31,7 +32,8 @@ buttonsOperator.forEach(button => {
     });
 })
 
-buttonClear.addEventListener('click', clear)
+buttonClear.addEventListener('click', clear);
+buttonNegative.addEventListener('click', toggleNegative);
 
 function operate () {
     displayValue = '';
@@ -88,6 +90,15 @@ function clear() {
     displayValue = '0';
     showDisplay();
     showOperator();
+}
+
+function toggleNegative() {
+    if (displayValue.includes('-')) {
+        displayValue = displayValue.slice(1);
+    } else {
+        displayValue = '-' + displayValue 
+    };
+    showDisplay();
 }
 
 const add = (a, b) => a + b;
