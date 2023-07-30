@@ -95,7 +95,7 @@ function showOperation() {
     }
 }
 
-function showOperator() {
+function showOperator() { // ------------- not needed
     displayOperator.textContent = operator;
 }
 
@@ -103,7 +103,7 @@ function getDisplayValue() {
     displayValue = parseFloat(displayValue);
 }
 
-function emptyDisplayValue() {
+function emptyDisplayValue() { // ------------- not needed
     displayValue.replace(b, '');
 }
 
