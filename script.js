@@ -27,17 +27,17 @@ buttonsNumber.forEach(button => {
             displayValue = '-'
         }
         displayValue = displayValue + event.target.textContent;
-        showDisplay()
+        showDisplay();
     });
 })
 
 buttonsOperator.forEach(button => {
     button.addEventListener('click', (event) => {
         getDisplayValue();  
-        assignAB();
+        assignAB(); 
         operate();
         assignOperator(event);
-        showOperator();
+        showOperator(event);
     });
 })
 
@@ -45,7 +45,7 @@ function operate () {
     displayValue = '';
 
     if (operator === '/' && (a === 0 || b == 0)) {
-        alert('"Why did the mathematician try to divide by zero?\n Oh, you know, just for the thrill of breaking the laws of the universe and watching calculators cry!"')
+        alert('Why did the mathematician try to divide by zero?\n\n Oh, you know, just for the thrill of breaking the laws of the universe and watching calculators cry!')
         return;
     }
 
@@ -125,18 +125,8 @@ function clearEntry() {
     if (displayNumber.textContent === '0') {
         return;
     } else {
-        displayValue = displayValue.slice(0, displayValue.length - 1);
-        showDisplay();
+        displayNumber.textContent = displayNumber.textContent.slice(0, displayNumber.textContent.length - 1);
     }
-}
-
-
-function assignOperator(event) {
-    operator = event.target.textContent;
-}
-
-function getDisplayValue() {
-    displayValue = parseFloat(displayNumber.textContent);
 }
 
 function assignAB() {
@@ -144,8 +134,16 @@ function assignAB() {
     b = displayValue;
 }
 
+function assignOperator(event) {
+    operator = event.target.textContent;
+}
+
 function showOperator() {
     displayOperator.textContent = operator;
+}
+
+function getDisplayValue() {
+    displayValue = parseFloat(displayNumber.textContent);
 }
 
 function showDisplay() {
@@ -160,6 +158,6 @@ const divide = (a, b) => a / b;
 showDisplay();
 
 /**
-    bug '[Violation] 'click' handler took 3824ms'
+    when clearing entry, negative is remove
     add keyboard support
  */
