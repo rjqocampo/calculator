@@ -41,9 +41,20 @@ body {
 
 #container-display {
 	height: 100px;
-	font-size: 2rem;
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	justify-content: center;
+	text-align: right;
+}
+
+#display-number {
+	min-height: 2rem;
+	font-size: 2rem;
+}
+
+#display-number {
+	min-height: 3rem;
+	font-size: 3rem;
 }
 
 #container-buttons {

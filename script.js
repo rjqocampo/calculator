@@ -46,7 +46,7 @@ buttonsOperator.forEach(button => {
 })
 
 function operate () {
-    if (operator === '/' && (a === 0 || b === 0)) {
+    if (operator === '÷' && (a === 0 || b === 0)) {
         alert('Why did the mathematician try to divide by zero?\n\n Oh, you know... just for the thrill of breaking the laws of the universe and watching calculators cry!')
         return;
     }
@@ -62,12 +62,12 @@ function operate () {
         a = b;
         b = value;
         displayValue = b;
-    } else if (operator === '*') {
+    } else if (operator === '×') {
         let value = hasDecimals(multiply(a, b));
         a = b;
         b = value;
         displayValue = b;
-    } else if (operator === '/') {
+    } else if (operator === '÷') {
         let value = hasDecimals(divide(a, b));
         a = b;
         b = value;
@@ -123,6 +123,7 @@ function toggleNegative() {
 
 function percentage() {
     let value = parseFloat(displayValue) / 100;
+    value = value.toFixed(2);
     displayValue = value.toString();
     displayValue = value;
 
@@ -145,7 +146,7 @@ function clearAll() {
     a = null;
     b = null;
     operator = '';
-    displayOperation.textContent = '';
+    displayOperation.textContent = '\u00A0';
     displayValue = '0';
     showDisplay();
     showOperator();
