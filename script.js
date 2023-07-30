@@ -45,30 +45,44 @@ buttonsOperator.forEach(button => {
 
 function operate () {
     displayValue = '';
+
+    if (operator === '/' && (a === 0 || b == 0)) {
+        alert('"Why did the mathematician try to divide by zero? Oh, you know, just for the thrill of breaking the laws of the universe and watching calculators cry!"')
+        return;
+    }
+
     if (a !== null && b !== null) {
         if (operator === '+') {
-            let value = add(a, b);
+            let value = hasDecimals(add(a, b));
             a = b;
             b = value; 
             displayNumber.textContent = b;
         } else if (operator === '-') {
-            let value = subtract(a, b);
+            let value = hasDecimals(subtract(a, b));
             a = b;
             b = value;
             displayNumber.textContent = b;
         } else if (operator === '*') {
-            let value = multiply(a, b);
+            let value = hasDecimals(multiply(a, b));
             a = b;
             b = value;
             displayNumber.textContent = b;
         } else if (operator === '/') {
-            let value = divide(a, b);
+            let value = hasDecimals(divide(a, b));
             a = b;
             b = value;
             displayNumber.textContent = b;
         }  
     };
 };
+
+function hasDecimals(n) {
+    if (Number.isInteger(n)) {
+        return n;
+    } else {
+        return n.toFixed(2);
+    }
+}
 
 function assignOperator(event) {
     operator = event.target.textContent;
