@@ -42,14 +42,12 @@ buttonsOperator.forEach(button => {
         operate();
         showDisplay();
         assignOperator(event);
-        // showOperator(event);
-        // emptyDisplayValue();
     });
 })
 
 function operate () {
     if (operator === '/' && (a === 0 || b === 0)) {
-        alert('Math error')
+        alert('Why did the mathematician try to divide by zero?\n\n Oh, you know... just for the thrill of breaking the laws of the universe and watching calculators cry!')
         return;
     }
 
@@ -95,16 +93,8 @@ function showOperation() {
     }
 }
 
-function showOperator() { // ------------- not needed
-    displayOperator.textContent = operator;
-}
-
 function getDisplayValue() {
     displayValue = parseFloat(displayValue);
-}
-
-function emptyDisplayValue() { // ------------- not needed
-    displayValue.replace(b, '');
 }
 
 function showDisplay() {
@@ -179,8 +169,3 @@ const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
 showDisplay();
-
-/**
-clear entry should not empty the display or leave just the negative sign
-decimal doesn't trigger when working on an outcome value with decimal. eg 150/2 = .75 and want to add .25 to it. .25 doen't start
- */
