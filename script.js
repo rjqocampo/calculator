@@ -45,7 +45,7 @@ function operate () {
     displayValue = '';
 
     if (operator === '/' && (a === 0 || b == 0)) {
-        alert('Why did the mathematician try to divide by zero?\n\n Oh, you know, just for the thrill of breaking the laws of the universe and watching calculators cry!')
+        alert('Why did the mathematician try to divide by zero?\n\n Oh, you know... just for the thrill of breaking the laws of the universe and watching calculators cry!')
         return;
     }
 
@@ -93,15 +93,13 @@ function toggleNegative() {
 }
 
 function percentage() {
-    console.log(displayNumber.textContent);
     let value = parseFloat(displayNumber.textContent) / 100;
     displayValue = value.toString();
     displayNumber.textContent = value;
 }
 
 function decimal() {
-    if (displayValue.includes('.')) { // ------------------- bug
-        console.log('bug')
+    if (displayValue.includes('.')) { 
         return;
     } else if (displayValue === '' || displayValue === '0') {
         displayValue = '0.'
@@ -124,6 +122,8 @@ function clearAll() {
 function clearEntry() {
     if (displayNumber.textContent === '0') {
         return;
+    } else if (displayNumber.textContent > -10 & displayNumber.textContent < 10) {
+        displayNumber.textContent = '0'
     } else {
         displayNumber.textContent = displayNumber.textContent.slice(0, displayNumber.textContent.length - 1);
     }
@@ -157,7 +157,3 @@ const divide = (a, b) => a / b;
 
 showDisplay();
 
-/**
-    when clearing entry, negative is remove
-    add keyboard support
- */
