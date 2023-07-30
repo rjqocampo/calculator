@@ -19,7 +19,6 @@ buttonNegative.addEventListener('click', toggleNegative);
 buttonPercentage.addEventListener('click', percentage);
 buttonDecimal.addEventListener('click', decimal);
 
-// listen for number buttons. append numbers to string of displayValue then show
 buttonsNumber.forEach(button => {
     button.addEventListener('click', (event) => {
         if (displayNumber.textContent === '0') {
@@ -34,8 +33,7 @@ buttonsNumber.forEach(button => {
 
 buttonsOperator.forEach(button => {
     button.addEventListener('click', (event) => {
-        getDisplayValue(); 
-        // clearDisplay(); 
+        getDisplayValue();  
         assignAB();
         operate();
         assignOperator(event);
@@ -47,7 +45,7 @@ function operate () {
     displayValue = '';
 
     if (operator === '/' && (a === 0 || b == 0)) {
-        alert('"Why did the mathematician try to divide by zero? Oh, you know, just for the thrill of breaking the laws of the universe and watching calculators cry!"')
+        alert('"Why did the mathematician try to divide by zero?\n Oh, you know, just for the thrill of breaking the laws of the universe and watching calculators cry!"')
         return;
     }
 
@@ -84,31 +82,6 @@ function hasDecimals(n) {
     }
 }
 
-function assignOperator(event) {
-    operator = event.target.textContent;
-}
-
-function getDisplayValue() {
-    displayValue = parseFloat(displayNumber.textContent);
-}
-
-function assignAB() {
-    a = b;
-    b = displayValue;
-}
-
-function clearDisplay() {
-    displayNumber.textContent = '';
-}
-
-function showOperator() {
-    displayOperator.textContent = operator;
-}
-
-function showDisplay() {
-    displayNumber.textContent = displayValue;
-}
-
 function toggleNegative() { 
     if (displayNumber.textContent === '0') {
         return;
@@ -132,7 +105,7 @@ function decimal() {
         return;
     } else if (displayValue === '' || displayValue === '0') {
         displayValue = '0.'
-        showDisplay()
+        showDisplay();
     } else {
         displayValue = displayValue + '.';
         showDisplay();
@@ -149,7 +122,34 @@ function clearAll() {
 }
 
 function clearEntry() {
-    console.log('test');
+    if (displayNumber.textContent === '0') {
+        return;
+    } else {
+        displayValue = displayValue.slice(0, displayValue.length - 1);
+        showDisplay();
+    }
+}
+
+
+function assignOperator(event) {
+    operator = event.target.textContent;
+}
+
+function getDisplayValue() {
+    displayValue = parseFloat(displayNumber.textContent);
+}
+
+function assignAB() {
+    a = b;
+    b = displayValue;
+}
+
+function showOperator() {
+    displayOperator.textContent = operator;
+}
+
+function showDisplay() {
+    displayNumber.textContent = displayValue;
 }
 
 const add = (a, b) => a + b;
@@ -161,6 +161,5 @@ showDisplay();
 
 /**
     bug '[Violation] 'click' handler took 3824ms'
-    bug with decimal, displayValue.includes is not a function after using percentage. checking on a string
     add keyboard support
  */
