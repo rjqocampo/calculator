@@ -7,6 +7,7 @@ const buttonNegative = document.querySelector('#negative')
 const buttonDecimal = document.querySelector ('#decimal');
 const displayNumber = document.querySelector('#display-number');
 const displayOperator = document.querySelector('#display-operator');
+const displayOperation = document.querySelector('#display-operation');
 
 let a = null;
 let b = null;
@@ -37,10 +38,11 @@ buttonsOperator.forEach(button => {
     button.addEventListener('click', (event) => {
         getDisplayValue();  
         assignAB(); 
+        showOperation();
         operate();
         showDisplay();
         assignOperator(event);
-        showOperator(event);
+        // showOperator(event);
         // emptyDisplayValue();
     });
 })
@@ -83,6 +85,14 @@ function assignAB() {
 
 function assignOperator(event) {
     operator = event.target.textContent;
+}
+
+function showOperation() {
+    if (a === null || b === null || operator === '=') {
+        return;
+    } else {
+        displayOperation.textContent = `${a} ${operator} ${b}`;
+    }
 }
 
 function showOperator() {
@@ -145,6 +155,7 @@ function clearAll() {
     a = null;
     b = null;
     operator = '';
+    displayOperation.textContent = '';
     displayValue = '0';
     showDisplay();
     showOperator();
@@ -153,10 +164,10 @@ function clearAll() {
 function clearEntry() {
     if (displayValue === '0') {
         return;
-    } else if (displayValue.length === 1 || (displayValue.includes('-') && displayValue.length === 2)) {
+    } else if (displayValue.length === 1 || (displayValue.toString().includes('-') && displayValue.length === 2)) {
         displayValue = '0';
     } else {
-        displayValue = displayValue.slice(0, displayValue.length - 1);
+        displayValue = displayValue.toString().slice(0, displayValue.length - 1);
     };
 
     showDisplay();
@@ -172,6 +183,4 @@ showDisplay();
 /**
 clear entry should not empty the display or leave just the negative sign
 decimal doesn't trigger when working on an outcome value with decimal. eg 150/2 = .75 and want to add .25 to it. .25 doen't start
-
-
  */
