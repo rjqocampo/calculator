@@ -21,9 +21,9 @@ buttonDecimal.addEventListener('click', decimal);
 
 buttonsNumber.forEach(button => {
     button.addEventListener('click', (event) => {
-        if (displayNumber.textContent === '0') {
+        if (displayValue === '0') {
             displayValue = '';
-        } else if (displayNumber.textContent === '-0') {
+        } else if (displayValue === '-0') {
             displayValue = '-'
         }
         displayValue = displayValue + event.target.textContent;
@@ -38,40 +38,39 @@ buttonsOperator.forEach(button => {
         operate();
         assignOperator(event);
         showOperator(event);
+        showDisplay();
+        // emptyDisplayValue();
     });
 })
 
 function operate () {
-    displayValue = '';
-
-    if (operator === '/' && (a === 0 || b == 0)) {
-        alert('Why did the mathematician try to divide by zero?\n\n Oh, you know... just for the thrill of breaking the laws of the universe and watching calculators cry!')
+    if (operator === '/' && (a === 0 || b === 0)) {
+        alert('Math error')
         return;
     }
 
-    if (a !== null && b !== null) {
-        if (operator === '+') {
-            let value = hasDecimals(add(a, b));
-            a = b;
-            b = value; 
-            displayNumber.textContent = b;
-        } else if (operator === '-') {
-            let value = hasDecimals(subtract(a, b));
-            a = b;
-            b = value;
-            displayNumber.textContent = b;
-        } else if (operator === '*') {
-            let value = hasDecimals(multiply(a, b));
-            a = b;
-            b = value;
-            displayNumber.textContent = b;
-        } else if (operator === '/') {
-            let value = hasDecimals(divide(a, b));
-            a = b;
-            b = value;
-            displayNumber.textContent = b;
-        }  
-    };
+    console.log(`A: ${a} B: ${b}`)
+    if (operator === '+') {
+        let value = hasDecimals(add(a, b));
+        a = b;
+        b = value; 
+        displayValue = b;
+    } else if (operator === '-') {
+        let value = hasDecimals(subtract(a, b));
+        a = b;
+        b = value;
+        displayValue = b;
+    } else if (operator === '*') {
+        let value = hasDecimals(multiply(a, b));
+        a = b;
+        b = value;
+        displayValue = b;
+    } else if (operator === '/') {
+        let value = hasDecimals(divide(a, b));
+        a = b;
+        b = value;
+        displayValue = b;
+    }  
 };
 
 function hasDecimals(n) {
@@ -79,23 +78,27 @@ function hasDecimals(n) {
         return n;
     } else {
         return n.toFixed(2);
-    }
+    };
 }
 
 function toggleNegative() { 
-    if (displayNumber.textContent === '0') {
+    if (displayValue === '0') {
         return;
-    } else if (displayNumber.textContent.includes('-')) {
-        displayNumber.textContent = displayNumber.textContent.slice(1);
+    } else if (displayValue.toString().includes('-')) {
+        displayValue = displayValue.slice(1);
     } else {
-        displayNumber.textContent = '-' + displayNumber.textContent;
-    }
+        displayValue = '-' + displayValue;
+    };
+
+    showDisplay();
 }
 
 function percentage() {
-    let value = parseFloat(displayNumber.textContent) / 100;
+    let value = parseFloat(displayValue) / 100;
     displayValue = value.toString();
-    displayNumber.textContent = value;
+    displayValue = value;
+
+    showDisplay();
 }
 
 function decimal() {
@@ -103,11 +106,11 @@ function decimal() {
         return;
     } else if (displayValue === '' || displayValue === '0') {
         displayValue = '0.'
-        showDisplay();
     } else {
         displayValue = displayValue + '.';
-        showDisplay();
-    }
+    };
+
+    showDisplay();
 }
 
 function clearAll() {
@@ -120,13 +123,15 @@ function clearAll() {
 }
 
 function clearEntry() {
-    if (displayNumber.textContent === '0') {
+    if (displayValue === '0') {
         return;
-    } else if (displayNumber.textContent > -10 & displayNumber.textContent < 10) {
-        displayNumber.textContent = '0'
+    } else if (displayValue.includes('-') && displayValue.length === 2) {
+        console.log('bug')
     } else {
-        displayNumber.textContent = displayNumber.textContent.slice(0, displayNumber.textContent.length - 1);
-    }
+        displayValue = displayValue.slice(0, displayValue.length - 1);
+    };
+
+    showDisplay();
 }
 
 function assignAB() {
@@ -143,7 +148,11 @@ function showOperator() {
 }
 
 function getDisplayValue() {
-    displayValue = parseFloat(displayNumber.textContent);
+    displayValue = parseFloat(displayValue);
+}
+
+function emptyDisplayValue() {
+    displayValue = '0';
 }
 
 function showDisplay() {
@@ -157,3 +166,14 @@ const divide = (a, b) => a / b;
 
 showDisplay();
 
+/**
+clear entry should not empty the display
+
+main cause of bugs:
+displayValue
+displayNumber.textContent
+
+displayValue and displayNumber not in sync
+clear entry and negative mutates displayNumber, but not displayValue. 
+when mutating displayNumber, then clicking on numbers, it shows different values
+ */
