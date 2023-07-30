@@ -153,8 +153,8 @@ function clearAll() {
 function clearEntry() {
     if (displayValue === '0') {
         return;
-    } else if (displayValue.includes('-') && displayValue.length === 2) {
-        console.log('bug')
+    } else if (displayValue.length === 1 || (displayValue.includes('-') && displayValue.length === 2)) {
+        displayValue = '0';
     } else {
         displayValue = displayValue.slice(0, displayValue.length - 1);
     };
