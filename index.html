@@ -3,6 +3,9 @@
     <head>
         <title>My Calculator</title>
         <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=JetBrains+Mono:wght@800&family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
     </head>
@@ -14,25 +17,25 @@
             </div>
             <div id="container-buttons">
                 <button id="clear-all">AC</button>
-                <button id="clear-entry">CE</button>
-                <button id="negative">+/-</button>
-                <button id="percentage">%</button>
+                <button id="negative" class="color-1">+/-</button>
+                <button id="percentage" class="color-1">%</button>
+                <button class="button-operator highlight color-1">÷</button>
                 <button class="button-number">7</button>
                 <button class="button-number">8</button>
                 <button class="button-number">9</button>
-                <button class="button-operator highlight">÷</button>
+                <button class="button-operator highlight color-1">×</button>
                 <button class="button-number">4</button>
                 <button class="button-number">5</button>
                 <button class="button-number">6</button>
-                <button class="button-operator highlight">×</button>
+                <button class="button-operator highlight color-1">-</button>
                 <button class="button-number">1</button>
                 <button class="button-number">2</button>
                 <button class="button-number">3</button>
-                <button class="button-operator highlight">-</button>
+                <button class="button-operator highlight color-1">+</button>
                 <button id="zero" class="button-number">0</button>
                 <button id="decimal">.</button>
-                <button class="button-operator">=</button>
-                <button class="button-operator highlight">+</button>
+                <button id="clear-entry">del</button>
+                <button class="button-operator equals">=</button>
             </div>
         </div>
     </body>

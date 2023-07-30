@@ -27,6 +27,13 @@ time, mark, audio, video {
 
 /* ----------- Custom CSS ----------- */
 body {
+	/* font-family: 'Fjalla One', sans-serif; */
+	font-family: 'JetBrains Mono', monospace;
+
+	background-image: url(img/1.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -34,38 +41,81 @@ body {
 }
 
 #container-main {
-	background-color: antiquewhite;
-	width: 400px;
-	height: 600px;;
+	background: rgba(63, 122, 197, 0.12);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(11.9px);
+	-webkit-backdrop-filter: blur(11.9px);
+	border: 1px solid rgba(63, 122, 197, 0.3);
+	/* From https://css.glass */
+	background: rgba(42, 47, 53, 0.12);
+	border-radius: 50px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(11.9px);
+	-webkit-backdrop-filter: blur(11.9px);
+	border: 1px solid rgba(63, 122, 197, 0.3);
+
+	width: 350px;
+	height: 650px;;
 }
 
 #container-display {
-	height: 100px;
+	height: 30%;
 	display: flex;
+	padding: .5rem;
 	flex-direction: column;
 	justify-content: center;
 	text-align: right;
+	color: white;
+	padding-top: 4rem;
 }
 
-#display-number {
+#display-operation {
 	min-height: 2rem;
-	font-size: 2rem;
+	line-height: 2rem;
+	font-size: 1.2rem;
+	margin: 0rem .4rem;
 }
 
 #display-number {
-	min-height: 3rem;
-	font-size: 3rem;
+	min-height: 4rem;
+	line-height: 3rem;
+	letter-spacing: -0.2rem;
+	font-size: 4rem;
 }
 
 #container-buttons {
-	height: 500px;
-	display: flex;
-	flex-wrap: wrap;
+	height: 70%;
+	display: grid;
+	padding: .5rem;
+	gap: .4rem;
+	grid-template-columns: repeat(4, 1fr)
 }
 
 button {
-	font-size: 2rem;
-	width: 25%;
+	/* font-family: 'Fjalla One', sans-serif; */
+	font-family: 'JetBrains Mono', monospace;
+
+	font-size: 1.5rem;
+	color: white;
+	border-radius: 60px;
+	height: 75px;
+	width: 75px;
+	border: 0;
+	background-color: rgba(212, 212, 212, 0.295);
+}
+
+.color-1 {
+	background-color: rgba(0, 195, 255, 0.418);
+}
+
+.equals{
+	color:rgba(17, 17, 17, 0.836);
+	background-color: rgba(255, 255, 255, 0.808);
+}
+
+#clear-all {
+	background-color:rgba(0, 255, 221, 0.459) 
 }
 
 .highlight:focus {

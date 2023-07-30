@@ -149,7 +149,6 @@ function clearAll() {
     displayOperation.textContent = '\u00A0';
     displayValue = '0';
     showDisplay();
-    showOperator();
 }
 
 function clearEntry() {
