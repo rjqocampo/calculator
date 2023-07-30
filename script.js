@@ -25,6 +25,8 @@ buttonsNumber.forEach(button => {
             displayValue = '';
         } else if (displayValue === '-0') {
             displayValue = '-'
+        } else if (displayValue === b) {
+            displayValue = ''
         }
         displayValue = displayValue + event.target.textContent;
         showDisplay();
@@ -36,9 +38,9 @@ buttonsOperator.forEach(button => {
         getDisplayValue();  
         assignAB(); 
         operate();
+        showDisplay();
         assignOperator(event);
         showOperator(event);
-        showDisplay();
         // emptyDisplayValue();
     });
 })
@@ -49,7 +51,7 @@ function operate () {
         return;
     }
 
-    console.log(`A: ${a} B: ${b}`)
+    console.log(`${a} ${operator} ${b}`)
     if (operator === '+') {
         let value = hasDecimals(add(a, b));
         a = b;
@@ -71,7 +73,33 @@ function operate () {
         b = value;
         displayValue = b;
     }  
+    console.log(b);
 };
+
+function assignAB() {
+    a = b;
+    b = displayValue;
+}
+
+function assignOperator(event) {
+    operator = event.target.textContent;
+}
+
+function showOperator() {
+    displayOperator.textContent = operator;
+}
+
+function getDisplayValue() {
+    displayValue = parseFloat(displayValue);
+}
+
+function emptyDisplayValue() {
+    displayValue.replace(b, '');
+}
+
+function showDisplay() {
+    displayNumber.textContent = displayValue;
+}
 
 function hasDecimals(n) {
     if (Number.isInteger(n)) {
@@ -101,11 +129,11 @@ function percentage() {
     showDisplay();
 }
 
-function decimal() {
-    if (displayValue.includes('.')) { 
-        return;
-    } else if (displayValue === '' || displayValue === '0') {
-        displayValue = '0.'
+function decimal() { 
+    if (displayValue === b) {
+        displayValue = '0.';
+    } else if (displayValue.toString().includes('.')) { 
+        return; 
     } else {
         displayValue = displayValue + '.';
     };
@@ -134,31 +162,6 @@ function clearEntry() {
     showDisplay();
 }
 
-function assignAB() {
-    a = b;
-    b = displayValue;
-}
-
-function assignOperator(event) {
-    operator = event.target.textContent;
-}
-
-function showOperator() {
-    displayOperator.textContent = operator;
-}
-
-function getDisplayValue() {
-    displayValue = parseFloat(displayValue);
-}
-
-function emptyDisplayValue() {
-    displayValue = '0';
-}
-
-function showDisplay() {
-    displayNumber.textContent = displayValue;
-}
-
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
@@ -167,13 +170,8 @@ const divide = (a, b) => a / b;
 showDisplay();
 
 /**
-clear entry should not empty the display
+clear entry should not empty the display or leave just the negative sign
+decimal doesn't trigger when working on an outcome value with decimal. eg 150/2 = .75 and want to add .25 to it. .25 doen't start
 
-main cause of bugs:
-displayValue
-displayNumber.textContent
 
-displayValue and displayNumber not in sync
-clear entry and negative mutates displayNumber, but not displayValue. 
-when mutating displayNumber, then clicking on numbers, it shows different values
  */
