@@ -36,6 +36,7 @@ body {
 	background-position: center center;
 	min-height: 100vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -66,7 +67,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	text-align: right;
-	color: white;
+	color: rgb(255, 255, 255);
 	padding-top: 4rem;
 }
 
@@ -109,6 +110,10 @@ button {
 	background-color: rgba(0, 195, 255, 0.418);
 }
 
+.highlight {
+	font-size: 1.7rem;
+}
+
 .equals{
 	color:rgba(17, 17, 17, 0.836);
 	background-color: rgba(255, 255, 255, 0.808);
@@ -121,3 +126,19 @@ button {
 .highlight:focus {
 	background-color: gray;
 }
+
+footer {
+	font-family:'Courier New', Courier, monospace;
+	font-size: .7rem;
+	color: white;
+	position: fixed; 
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	gap: .3rem;
+	padding: .3rem;
+}
+
+#git {
+	width: 1.4rem;
