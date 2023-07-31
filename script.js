@@ -166,7 +166,7 @@ function clearAll() {
 function clearEntry() {
     if (isNaN(displayValue)) {
         return;
-    } else if (displayValue === '0') {
+    } else if (displayValue === '0' || displayValue === 0) {
         clearAll();
         return;
     } else if (displayValue.length === 1 || (displayValue.toString().includes('-') && displayValue.length === 2)) {
@@ -187,5 +187,5 @@ const divide = (a, b) => a / b;
 showDisplay();
 
 /**
-toggle negative not working on output value
+clear entry working on output of 0
  */
