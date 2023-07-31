@@ -26,13 +26,9 @@ time, mark, audio, video {
 }
 
 /* ----------- Custom CSS ----------- */
-html {
-
-}
-
 body {
 	font-family: 'JetBrains Mono', monospace;
-	background-image: url(img/1.jpg);
+	background: linear-gradient( rgba(0, 0, 0, 0.178), rgba(0, 0, 0, 0.342) ), url('img/1.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -43,19 +39,12 @@ body {
 }
 
 #container-main {
-	background: rgba(63, 122, 197, 0.12);
-	border-radius: 16px;
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(11.9px);
-	-webkit-backdrop-filter: blur(11.9px);
-	border: 1px solid rgba(63, 122, 197, 0.3);
-	/* From https://css.glass */
-	background: rgba(42, 47, 53, 0.12);
+	background: rgba(42, 47, 53, 0.212);
 	border-radius: 50px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(11.9px);
 	-webkit-backdrop-filter: blur(11.9px);
-	border: 1px solid rgba(63, 122, 197, 0.3);
+	border: 1px solid rgba(40, 75, 121, 0.26);
 	width: 350px;
 	height: 650px;;
 }
@@ -74,7 +63,9 @@ body {
 #display-operation {
 	min-height: 2rem;
 	line-height: 2rem;
+	letter-spacing: -0.05rem;
 	font-size: 1.2rem;
+	font-weight: 400;
 	margin: 0rem .4rem;
 }
 
@@ -82,7 +73,9 @@ body {
 	min-height: 4rem;
 	line-height: 3rem;
 	letter-spacing: -0.2rem;
-	font-size: 4rem;
+	font-size: 3.5rem;
+	margin: 0rem .2rem;
+	font-weight: 800;
 }
 
 #container-buttons {
@@ -94,9 +87,8 @@ body {
 }
 
 button {
-	/* font-family: 'Fjalla One', sans-serif; */
 	font-family: 'JetBrains Mono', monospace;
-
+	font-weight: 800;
 	font-size: 1.5rem;
 	color: white;
 	border-radius: 60px;
@@ -120,7 +112,8 @@ button {
 }
 
 #clear-all {
-	background-color:rgba(0, 255, 221, 0.459) 
+	background-color:rgba(0, 255, 221, 0.459) ;
+	color: rgb(53, 53, 53);
 }
 
 .highlight:focus {
@@ -142,3 +135,4 @@ footer {
 
 #git {
 	width: 1.4rem;
+}

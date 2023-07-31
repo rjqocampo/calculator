@@ -169,3 +169,8 @@ const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
 showDisplay();
+
+/**
+if displayValue is NaN, don't add decimals or clear entry or input number
+max 9 length, return Nan
+ */
