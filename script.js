@@ -185,7 +185,3 @@ const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
 showDisplay();
-
-/**
-clear entry working on output of 0
- */
