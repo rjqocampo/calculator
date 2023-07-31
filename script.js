@@ -123,7 +123,7 @@ function toggleNegative() {
     } else if (displayValue === '0') {
         return;
     } else if (displayValue.toString().includes('-')) {
-        displayValue = displayValue.slice(1);
+        displayValue = displayValue.toString().slice(1);
     } else {
         displayValue = '-' + displayValue;
     };
@@ -167,6 +167,7 @@ function clearEntry() {
     if (isNaN(displayValue)) {
         return;
     } else if (displayValue === '0') {
+        clearAll();
         return;
     } else if (displayValue.length === 1 || (displayValue.toString().includes('-') && displayValue.length === 2)) {
         displayValue = '0';
@@ -184,3 +185,7 @@ const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
 showDisplay();
+
+/**
+toggle negative not working on output value
+ */
