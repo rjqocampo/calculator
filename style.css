@@ -98,6 +98,11 @@ button {
 	background-color: rgba(212, 212, 212, 0.295);
 }
 
+button:active {
+	filter: brightness(95%);
+	transform: scale(95%);
+}
+
 .color-1 {
 	background-color: rgba(0, 195, 255, 0.418);
 }
@@ -117,7 +122,8 @@ button {
 }
 
 .highlight:focus {
-	background-color: gray;
+	background-color: rgb(151, 72, 255);
+
 }
 
 footer {

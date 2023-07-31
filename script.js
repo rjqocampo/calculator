@@ -55,7 +55,6 @@ function operate () {
         return;
     }
 
-    console.log(`${a} ${operator} ${b}`)
     if (operator === '+') {
         let value = hasDecimals(add(a, b));
         a = b;
@@ -77,7 +76,6 @@ function operate () {
         b = value;
         displayValue = b;
     }  
-    console.log(b);
 };
 
 function assignAB() {
@@ -107,7 +105,6 @@ function showDisplay() {
 
 function hasDecimals(n) {
     if (n.toString().length > 9) {
-        console.log('length')
         return NaN;
     } else if (Number.isInteger(n)) {
         return n;
@@ -180,8 +177,3 @@ const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
 showDisplay();
-
-/**
-if displayValue is NaN, don't add decimals or clear entry or input number
-max 9 length, return Nan
- */
