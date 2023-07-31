@@ -160,7 +160,9 @@ function clearAll() {
 }
 
 function clearEntry() {
-    if (displayValue === '0') {
+    if (isNaN(displayValue)) {
+        return;
+    } else if (displayValue === '0') {
         return;
     } else if (displayValue.length === 1 || (displayValue.toString().includes('-') && displayValue.length === 2)) {
         displayValue = '0';
