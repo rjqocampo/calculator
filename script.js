@@ -55,6 +55,7 @@ function operate () {
         return;
     }
 
+    console.log(`${a} ${operator} ${b}`)
     if (operator === '+') {
         let value = hasDecimals(add(a, b));
         a = b;
@@ -76,6 +77,7 @@ function operate () {
         b = value;
         displayValue = b;
     }  
+    console.log(b);
 };
 
 function assignAB() {
@@ -165,7 +167,8 @@ function clearEntry() {
     } else if (displayValue.length === 1 || (displayValue.toString().includes('-') && displayValue.length === 2)) {
         displayValue = '0';
     } else {
-        displayValue = displayValue.toString().slice(0, displayValue.length - 1);
+        let index = displayValue.toString().length - 1
+        displayValue = displayValue.toString().slice(0, index);
     };
 
     showDisplay();
