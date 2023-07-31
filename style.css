@@ -26,17 +26,18 @@ time, mark, audio, video {
 }
 
 /* ----------- Custom CSS ----------- */
-body {
-	/* font-family: 'Fjalla One', sans-serif; */
-	font-family: 'JetBrains Mono', monospace;
+html {
 
+}
+
+body {
+	font-family: 'JetBrains Mono', monospace;
 	background-image: url(img/1.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
 	min-height: 100vh;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -55,7 +56,6 @@ body {
 	backdrop-filter: blur(11.9px);
 	-webkit-backdrop-filter: blur(11.9px);
 	border: 1px solid rgba(63, 122, 197, 0.3);
-
 	width: 350px;
 	height: 650px;;
 }
