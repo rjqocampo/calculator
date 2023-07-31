@@ -78,7 +78,7 @@ function operate () {
         displayValue = b;
     }  
     console.log(b);
-};
+}
 
 function assignAB() {
     a = b;
@@ -107,10 +107,14 @@ function showDisplay() {
 
 function hasDecimals(n) {
     if (Number.isInteger(n)) {
-        return n;
+        if (n.toString().length > 8) {
+            return NaN;
+        } else {
+            return n;
+        }
     } else {
         return n.toFixed(2);
-    };
+    }
 }
 
 function toggleNegative() { 
