@@ -55,7 +55,7 @@ function operate () {
         return;
     }
 
-    console.log('A: ${a} B: ${b}')
+    // console.log('A: ${a} B: ${b}')
     if (operator === '+') {
         let value = hasDecimals(add(a, b));
         a = b;
@@ -77,7 +77,7 @@ function operate () {
         b = value;
         displayValue = b;
     }  
-    console.log(b);
+    // console.log(b);
 };
 
 function assignAB() {
