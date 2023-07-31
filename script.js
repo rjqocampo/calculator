@@ -22,7 +22,11 @@ buttonDecimal.addEventListener('click', decimal);
 
 buttonsNumber.forEach(button => {
     button.addEventListener('click', (event) => {
-        if (displayValue === '0') {
+        if (isNaN(displayValue)) {
+            return;
+        } else if (displayValue.toString().length > 8) {
+            return;
+        } else if (displayValue === '0') {
             displayValue = '';
         } else if (displayValue === '-0') {
             displayValue = '-'
@@ -102,7 +106,10 @@ function showDisplay() {
 }
 
 function hasDecimals(n) {
-    if (Number.isInteger(n)) {
+    if (n.toString().length > 9) {
+        console.log('length')
+        return NaN;
+    } else if (Number.isInteger(n)) {
         return n;
     } else {
         return n.toFixed(2);
@@ -110,7 +117,9 @@ function hasDecimals(n) {
 }
 
 function toggleNegative() { 
-    if (displayValue === '0') {
+    if (isNaN(displayValue)) {
+        return;
+    } else if (displayValue === '0') {
         return;
     } else if (displayValue.toString().includes('-')) {
         displayValue = displayValue.slice(1);
@@ -131,7 +140,9 @@ function percentage() {
 }
 
 function decimal() { 
-    if (displayValue === b) {
+    if (isNaN(displayValue)) {
+        return;
+    } else if (displayValue === b) {
         displayValue = '0.';
     } else if (displayValue.toString().includes('.')) { 
         return; 
