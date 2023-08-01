@@ -126,19 +126,30 @@ button:active {
 
 }
 
-footer {
-	font-family:'Courier New', Courier, monospace;
-	font-size: .7rem;
-	color: white;
-	position: fixed; 
-	bottom: 0;
-	left: 0;
+#container-git {
 	display: flex;
 	align-items: center;
 	gap: .3rem;
 	padding: .3rem;
 }
 
+footer {
+	display: flex;
+	align-items: center;
+	margin-right: auto;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	gap: 0.3rem;
+	padding: 0.3rem;
+}
+
+h1 {
+	font-family:'Courier New', Courier, monospace;
+	font-size: 0.6rem;
+	color: white;
+}
+
 #git {
-	width: 1.4rem;
+	width: 1.2rem;
 }
