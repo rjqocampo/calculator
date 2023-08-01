@@ -34,11 +34,17 @@ body {
 	background-position: center center;
 	min-height: 100vh;
 	display: flex;
+	flex-direction: column;
+}
+
+#container-main {
+	flex: 1;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-#container-main {
+#container-calculator {
 	background: rgba(42, 47, 53, 0.212);
 	border-radius: 50px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -46,7 +52,7 @@ body {
 	-webkit-backdrop-filter: blur(11.9px);
 	border: 1px solid rgba(40, 75, 121, 0.26);
 	width: 350px;
-	height: 650px;;
+	max-height: 600px;
 }
 
 #container-display {
@@ -137,9 +143,7 @@ footer {
 	display: flex;
 	align-items: center;
 	margin-right: auto;
-	position: fixed;
-	bottom: 0;
-	left: 0;
+	flex: 0;
 	gap: 0.3rem;
 	padding: 0.3rem;
 }
