@@ -132,28 +132,31 @@ button:active {
 
 }
 
-#container-git {
-	display: flex;
-	align-items: center;
-	gap: .3rem;
-	padding: .3rem;
+footer > a {
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 0.7rem;
+    color: white;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 5px;
 }
 
-footer {
-	display: flex;
-	align-items: center;
-	margin-right: auto;
-	flex: 0;
-	gap: 0.3rem;
-	padding: 0.3rem;
+footer > a > img {
+    padding: 0;
+
+    height: 25px;
+    width: 25px;
 }
 
-h1 {
-	font-family:'Courier New', Courier, monospace;
-	font-size: 0.6rem;
-	color: white;
+footer > a:hover p {
+    display: none;
 }
 
-#git {
-	width: 1.2rem;
+footer > a:hover:after {
+    content: "Click to see code";
 }
