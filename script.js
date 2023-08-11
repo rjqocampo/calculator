@@ -24,14 +24,14 @@ buttonsNumber.forEach(button => {
     button.addEventListener('click', (event) => {
         if (isNaN(displayValue)) {
             return;
-        } else if (displayValue.toString().length > 8) {
-            return;
         } else if (displayValue === '0') {
             displayValue = '';
         } else if (displayValue === '-0') {
             displayValue = '-'
         } else if (displayValue === b) {
             displayValue = ''
+        } else if (displayValue.toString().length > 8) {
+            return;
         }
         displayValue = displayValue + event.target.textContent;
         showDisplay();
@@ -77,11 +77,10 @@ function operate () {
         b = value;
         displayValue = b;
     }  
-    console.log(b);
 }
 
 function assignAB() {
-    a = b;
+    a = parseFloat(b);
     b = displayValue;
 }
 
@@ -106,14 +105,19 @@ function showDisplay() {
 }
 
 function hasDecimals(n) {
+    console.log(n);
     if (Number.isInteger(n)) {
-        if (n.toString().length > 8) {
+        if (n.toString().length > 9) {
             return NaN;
         } else {
             return n;
         }
     } else {
-        return n.toFixed(2);
+        if (n.toFixed(2).length > 9) {
+            return NaN;
+        } else {
+            return n.toFixed(2);
+        }
     }
 }
 
