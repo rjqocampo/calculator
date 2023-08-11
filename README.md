@@ -24,14 +24,14 @@ To practice and solidify my Javascript and CSS fundamentals
 ### My Learnings
 * Value of conditional statements
 * Value of built-in Javascript methods
-* Value of Chrome DevTools, specially Breakpoints and Watch feature
+* Value of Chrome DevTools, specifically the Breakpoints and Watch feature
 * Importance of functions, event listeners and DOM manipulation
 * Importance of a CSS reset
 * Importance of data types. Encountered bugs due to incorrectly interchanging strings and numbers
 * Importance of naming variables more clearly to avoid confusion
 
 ### Known Issues
-* Displays is limited to only two decimals to avoid display overflow, so results may produce rounding errors 
+* Display is limited to only two decimals to avoid display overflow, so results may produce rounding errors 
 * Outputs NaN if display will overflow
 
 ### Prospective Updates
