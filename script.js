@@ -89,7 +89,7 @@ function assignOperator(event) {
 }
 
 function showOperation() {
-    if (a === null || b === null || operator === '=') {
+    if ( isNaN(a) || isNaN(b) || operator === '=') {
         return;
     } else {
         displayOperation.textContent = `${a} ${operator} ${b}`;
