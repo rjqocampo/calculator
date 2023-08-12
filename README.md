@@ -26,7 +26,6 @@ To practice and solidify my Javascript and CSS fundamentals
 * Value of built-in Javascript methods
 * Value of Chrome DevTools, specifically the Breakpoints and Watch feature
 * Importance of functions, event listeners and DOM manipulation
-* Importance of a CSS reset
 * Importance of data types. Encountered bugs due to incorrectly interchanging strings and numbers
 * Importance of naming variables more clearly to avoid confusion
 
@@ -85,7 +84,7 @@ To toggle postive/negative on the current number, click the Toggle Positive/Nega
 
 **Convert to Percentage**
 
-To convert to a percentage on the current number, click the Percentage(%) button.
+To convert the current number into a percentage, click the Percentage(%) button.
 
 # Contributions
 
