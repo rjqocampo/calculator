@@ -26,16 +26,20 @@ To practice and solidify my Javascript and CSS fundamentals
 * Value of built-in Javascript methods
 * Value of Chrome DevTools, specifically the Breakpoints and Watch feature
 * Importance of functions, event listeners and DOM manipulation
-* Importance of data types. Encountered bugs due to incorrectly interchanging strings and numbers
+* Importance of data types and making sure to pass correct data types to built-in Javascript methods
 * Importance of naming variables more clearly to avoid confusion
 
 ### Known Issues
 * Display is limited to only two decimals to avoid display overflow, so results may produce rounding errors 
 * Outputs NaN if display will overflow
 
+Found a bug or issue in the project? [Click here](https://github.com/rjqocampo/calculator#contributions).
+
 ### Prospective Updates
 * More calculator functions
 * Keyboard Support
+
+Looking to contribute ideas or features to the project? [Click here](https://github.com/rjqocampo/calculator#contributions).
 
 # Getting Started
 You can start the project in two ways:
@@ -88,12 +92,29 @@ To convert the current number into a percentage, click the Percentage(%) button.
 
 # Contributions
 
-I owe my learnings to the open source community. It's an amazing place to learn, inspire and create.  So I welcome any contributions from the community that can help enhance this project. If you're interested in contributing, here are a few pointers to get you started:
+I owe my learnings to the open source community. It's an amazing place to learn, inspire and create.  So I welcome any contributions from the community that can help enhance this project. 
 
-* **Fork the Repository:** Fork this repository to your GitHub account.
-* **Make Changes:** Implement your changes, whether they're bug fixes, new features, or improvements.
-* **Create a Pull Request:** Submit a pull request to the original repository. Provide a clear description of your changes.
-* **Merge:** Once approved, your changes will be merged into the project.
+### Contribute
+
+If you're interested in contributing, here are a few pointers to get you started:
+
+1. **Fork the Repository:** Fork this repository to your GitHub account.
+2. **Make Changes:** Implement your changes, whether they're bug fixes, new features, or improvements.
+3. **Create a Pull Request:** Submit a pull request to the original repository. Provide a clear description of your changes.
+4. **Merge:** Once approved, your changes will be merged into the project.
+
+### Report Bugs or Issues
+
+Found a bug or issue in the project? Help me improve by reporting it! A well-documented bug report can go a long way in helping me understand and resolve the issue. Here's how you can report bugs effectively:
+
+1. **Check Existing Issues:** Before reporting a bug, search the [issue tracker](https://github.com/rjqocampo/calculator/issues) to see if someone else has already reported the same issue. If you find a similar report, you can add more information or subscribe to updates.
+2. **Create a New Issue:** If the issue hasn't been reported yet, go ahead and [create a new issue](https://github.com/rjqocampo/calculator/issues/new). Try to provide the following information:
+   * A clear and descriptive title.
+   * Details about the bug or issue you encountered.
+   * Steps to reproduce the issue (if applicable).
+   * Expected behavior and actual behavior.
+   * Any relevant screenshots or error messages.
+3. **Labels and Tags:** Kindly use appropriate labels and tags to categorize the issue. This helps me prioritize and address it more efficiently.
 
 Thank you for your contributions and I appreciate all interests in making this project better for everyone. 
 
